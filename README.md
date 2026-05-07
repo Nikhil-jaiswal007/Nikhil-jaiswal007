@@ -79,18 +79,29 @@ Added missing Music and Design automation categories to close an open feature ga
 ### `> cat status.json`
 
 </div>
+### `> python status.py`
 
 ```python
 {
-  "year"         : "2nd year B.Tech Computer Science",
-  "studying"     : ["Algorithms", "Operating Systems", "Discrete Math"],
-  "contributing" : ["OpenSSL (post-quantum crypto)", "pandas", "Supabase", "Streamlit", "omi"],
-  "looking_for"  : "Summer 2025 Internship — Python · C++ · Machine Learning",
-  "open_to"      : ["SWE", "ML Engineering", "Systems", "Backend"]
+  "currently"  :  "turning coffee into cryptography bugs fixed",
+  "year"       :  "3rd semester · B.Tech Computer Science",
+  "os"         :  "Ubuntu 24.04 (btw)",
+  "shipping"   :  [
+                    "post-quantum crypto",   
+                    "data science tooling",  
+                    "computer vision",       
+                    "developer tooling"      
+                  ],
+  "exploring"  :  [
+                    "ML internals",         
+                    "numpy / scikit-learn",  
+                    "systems × ML"          
+                  ],
+  "stack"      :  ["C", "C++", "Python", "Linux", "GDB"],
+  "fun_fact"   :  "found a segfault in OpenCV before breakfast",
+  "next"  :  "building something people use before I graduate"
 }
 ```
-
----
 
 <div align="center">
 
