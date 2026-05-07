@@ -24,23 +24,7 @@
 
 </div>
 
-> **6 closed PRs across 5 major open-source projects in the past 3 weeks.**
 
----
-
-#### 🔐 OpenSSL — Post-Quantum Cryptography Security Fix *(In Progress · assigned by maintainer)*
-> `crypto/slh_dsa/slh_dsa_key.c` · [Issue #31055](https://github.com/openssl/openssl/issues/31055) · Assigned by [@nhorman](https://github.com/nhorman)
-
-In OpenSSL's SLH-DSA (FIPS 205 post-quantum) implementation, importing a raw private key with `EVP_PKEY_new_raw_private_key_ex()` alongside a mismatched public key silently succeeded. `EVP_DigestSign()` would then produce signatures no one could verify.
-
-**Root cause:** `ossl_slh_dsa_key_fromdata()` hit an early-return on the full 4n-byte path, discarding `param_pub` entirely.
-**Fix:** `CRYPTO_memcmp` on `SLH_DSA_PUB(key)` vs. the supplied param at the import boundary. O(n), constant-time, zero perf cost.
-
-```
-Files: crypto/slh_dsa/slh_dsa_key.c · test/slh_dsa_test.c · doc/man7/EVP_PKEY-SLH-DSA.pod
-```
-
----
 
 #### 🐼 pandas — Documentation Fix · **Merged** ✅
 > [`pandas-dev/pandas` #65371](https://github.com/pandas-dev/pandas/pull/65371) · merged yesterday · `Contributor` badge
@@ -62,43 +46,7 @@ Labels: Docs · Dtype Conversions   Branch: 3.1
 
 Added missing Music and Design automation categories to close an open feature gap in the hub's category system.
 
----
 
-#### 🎙️ BasedHardware/omi — Hardcoded URL Refactor *(Closed · Review required)*
-> [`BasedHardware/omi` #7038](https://github.com/BasedHardware/omi/pull/7038) · 7 comments
-
-**chore: replace hardcoded `h.omi.me` with environment variable (#4339)**
-
-Removed hardcoded production URL from source, replaced with a configurable environment variable — standard twelve-factor app hygiene.
-
----
-
-#### 🎙️ BasedHardware/omi — UI Bug Fix *(Closed · Review required)*
-> [`BasedHardware/omi` #6821](https://github.com/BasedHardware/omi/pull/6821) · 7 comments
-
-**fix: yellow button not working**
-
-Diagnosed and patched a non-functional UI button in the omi wearable AI app.
-
----
-
-#### 🗄️ supabase-py — Client Options Regression Fix *(Closed · Review required)*
-> [`supabase/supabase-py` #1467](https://github.com/supabase/supabase-py/pull/1467)
-
-**fix: restore `storage` and `httpx_client` fields on `ClientOptions`**
-
-Restored two fields accidentally dropped from `ClientOptions` that broke storage access and custom HTTP client injection for downstream users.
-
----
-
-#### 📊 Streamlit — Type Annotation Fix *(Closed · Review required)*
-> [`streamlit/streamlit` #14747](https://github.com/streamlit/streamlit/pull/14747) · 2 comments
-
-**Fix expander accessor return type annotation**
-
-Corrected an incorrect return type annotation on the `expander` accessor — a silent type-safety issue surfaced by mypy/pyright users.
-
----
 
 <div align="center">
 
