@@ -39,6 +39,13 @@ Labels: Docs · Dtype Conversions   Branch: 3.1
 
 ---
 
+#### 👁️ OpenCV — Segfault Fix in Python Sample · **Merged** ✅
+> [`opencv/opencv_contrib` #4105](https://github.com/opencv/opencv_contrib/pull/4105) · merged by @asmorkalov · 11/13 CI checks passed
+
+**reg: fix broken Python sample — use dot notation and fix segfault**
+
+Fixed a segfault in OpenCV's `reg` module Python sample caused by incorrect attribute access notation. PR passed CI on Linux (20.04, 22.04, 24.04), ARM64, ARM64-FastCV, and CUDA.
+
 #### ⚙️ python-automation-hub — Feature Fix · **Merged** ✅
 > [`emineugurlu/python-automation-hub` #3](https://github.com/emineugurlu/python-automation-hub/pull/3) · merged 2 weeks ago · `Contributor` badge
 
