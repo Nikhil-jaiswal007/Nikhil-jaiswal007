@@ -12,9 +12,7 @@
 
 </div>
 
-2nd-year B.Tech Computer Science student who doesn't wait for internships to write production code. I contribute directly to the libraries used by millions — fixing real bugs, improving real docs, shipping real PRs — across cryptography, data science, and developer tooling.
-
-**Currently seeking a Summer 2025 technical internship** in Python · C++ · Machine Learning.
+2nd-year B.Tech Computer Science student who doesn't wait for internships to write production code. I contribute directly to the libraries used by millions — fixing real bugs, improving real docs, shipping real PRs — across cryptography, data science, and computer vision.
 
 ---
 
@@ -24,10 +22,26 @@
 
 </div>
 
+> **4 merged PRs across 4 major open-source projects.**
 
+---
+
+#### 🔐 OpenSSL — Post-Quantum Cryptography Security Fix *(In Progress · assigned by maintainer)*
+> `crypto/slh_dsa/slh_dsa_key.c` · [Issue #31055](https://github.com/openssl/openssl/issues/31055) · Assigned by [@nhorman](https://github.com/nhorman)
+
+In OpenSSL's SLH-DSA (FIPS 205 post-quantum) implementation, importing a raw private key with `EVP_PKEY_new_raw_private_key_ex()` alongside a mismatched public key silently succeeded. `EVP_DigestSign()` would then produce signatures no one could verify.
+
+**Root cause:** `ossl_slh_dsa_key_fromdata()` hit an early-return on the full 4n-byte path, discarding `param_pub` entirely.  
+**Fix:** `CRYPTO_memcmp` on `SLH_DSA_PUB(key)` vs. the supplied param at the import boundary. O(n), constant-time, zero perf cost.
+
+```
+Files: crypto/slh_dsa/slh_dsa_key.c · test/slh_dsa_test.c · doc/man7/EVP_PKEY-SLH-DSA.pod
+```
+
+---
 
 #### 🐼 pandas — Documentation Fix · **Merged** ✅
-> [`pandas-dev/pandas` #65371](https://github.com/pandas-dev/pandas/pull/65371) · merged yesterday · `Contributor` badge
+> [`pandas-dev/pandas` #65371](https://github.com/pandas-dev/pandas/pull/65371) · merged · `Contributor` badge
 
 **DOC: fix `to_numeric` docstring — add `Index`/scalar return types, fix `dtype_backend` description**
 
@@ -46,14 +60,30 @@ Labels: Docs · Dtype Conversions   Branch: 3.1
 
 Fixed a segfault in OpenCV's `reg` module Python sample caused by incorrect attribute access notation. PR passed CI on Linux (20.04, 22.04, 24.04), ARM64, ARM64-FastCV, and CUDA.
 
+---
+
 #### ⚙️ python-automation-hub — Feature Fix · **Merged** ✅
-> [`emineugurlu/python-automation-hub` #3](https://github.com/emineugurlu/python-automation-hub/pull/3) · merged 2 weeks ago · `Contributor` badge
+> [`emineugurlu/python-automation-hub` #3](https://github.com/emineugurlu/python-automation-hub/pull/3) · merged · `Contributor` badge
 
 **fix: add Music and Design categories — closes #1**
 
 Added missing Music and Design automation categories to close an open feature gap in the hub's category system.
 
+---
 
+#### 🗄️ supabase-py — Client Options Regression Fix *(Under Review)*
+> [`supabase/supabase-py` #1467](https://github.com/supabase/supabase-py/pull/1467)
+
+**fix: restore `storage` and `httpx_client` fields on `ClientOptions`**
+
+---
+
+#### 📊 Streamlit — Type Annotation Fix *(Under Review)*
+> [`streamlit/streamlit` #14747](https://github.com/streamlit/streamlit/pull/14747)
+
+**Fix expander accessor return type annotation**
+
+---
 
 <div align="center">
 
@@ -76,10 +106,9 @@ Added missing Music and Design automation categories to close an open feature ga
 
 <div align="center">
 
-### `> cat status.json`
+### `> python status.py`
 
 </div>
-### `> python status.py`
 
 ```python
 {
@@ -87,21 +116,23 @@ Added missing Music and Design automation categories to close an open feature ga
   "year"       :  "3rd semester · B.Tech Computer Science",
   "os"         :  "Ubuntu 24.04 (btw)",
   "shipping"   :  [
-                    "post-quantum crypto",   
-                    "data science tooling",  
-                    "computer vision",       
-                    "developer tooling"      
+                    "post-quantum crypto",   # OpenSSL
+                    "data science tooling",  # pandas
+                    "computer vision",       # OpenCV
+                    "developer tooling"      # Supabase · Streamlit
                   ],
   "exploring"  :  [
-                    "ML internals",         
-                    "numpy / scikit-learn",  
-                    "systems × ML"          
+                    "ML internals",          # how models actually work
+                    "numpy / scikit-learn",  # from API user → contributor
+                    "systems × ML"           # where C++ meets inference
                   ],
   "stack"      :  ["C", "C++", "Python", "Linux", "GDB"],
   "fun_fact"   :  "found a segfault in OpenCV before breakfast",
-  "next"  :  "building something people use before I graduate"
+  "next"       :  "building something people use before I graduate"
 }
 ```
+
+---
 
 <div align="center">
 
@@ -135,13 +166,26 @@ Added missing Music and Design automation categories to close an open feature ga
 
 </div>
 
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)"
+          srcset="https://raw.githubusercontent.com/Nikhil-jaiswal007/Nikhil-jaiswal007/output/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)"
+          srcset="https://raw.githubusercontent.com/Nikhil-jaiswal007/Nikhil-jaiswal007/output/github-snake.svg" />
+  <img alt="contribution snake"
+       src="https://raw.githubusercontent.com/Nikhil-jaiswal007/Nikhil-jaiswal007/output/github-snake.svg" />
+</picture>
+
+</div>
+
 ---
 
 <div align="center">
 <sub>
-  2 merged · pandas-dev/pandas &nbsp;·&nbsp; emineugurlu/python-automation-hub<br/>
+  3 merged · pandas-dev/pandas &nbsp;·&nbsp; opencv/opencv_contrib &nbsp;·&nbsp; emineugurlu/python-automation-hub<br/>
   1 in-progress · openssl/openssl (assigned by maintainer Neil Horman)<br/>
-  3 under review · BasedHardware/omi &nbsp;·&nbsp; supabase/supabase-py &nbsp;·&nbsp; streamlit/streamlit
+  2 under review · supabase/supabase-py &nbsp;·&nbsp; streamlit/streamlit
 </sub>
 </div>
 
