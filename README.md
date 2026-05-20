@@ -97,14 +97,14 @@ Added missing Music and Design automation categories to close an open feature ga
   "os"         :  "Ubuntu 24.04 (btw)",
   "shipping"   :  [
                     "post-quantum crypto",   
-                    "data science tooling",  # pandas
-                    "computer vision",       # OpenCV
-                    "developer tooling"      # Supabase · Streamlit
+                    "data science tooling",  
+                    "computer vision",       
+                    "developer tooling"      
                   ],
   "exploring"  :  [
-                    "ML internals",          # how models actually work
-                    "numpy / scikit-learn",  # from API user → contributor
-                    "systems × ML"           # where C++ meets inference
+                    "ML internals",          
+                    "numpy / scikit-learn",  
+                    "systems × ML"           
                   ],
   "stack"      :  ["C", "C++", "Python", "Linux", "GDB"],
   "fun_fact"   :  "found a segfault in OpenCV before breakfast",
